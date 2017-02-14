@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>Home</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/styles.css">        
+    </head>
+
+    <body>
+        <div class="container">
+            <div id="movie-details">
+                <h1 class="text-center"><%=movie.title%></h1>
+                <div class="row">
+                    <div class="col-xs-5">
+                        <img class="movie-poster" src=<%=movie.poster %> />
+                    </div>
+                    <div class="col-xs-7">
+                        <table class="table">
+                        
+                        <% let x;%>
+                            <% for (x in movie) {%>
+
+                            <tr>
+                                <td><%=x  %></td>
+                                <td><%=movie[x] %></td>
+                            </tr>
+                            <% } %>
+                        </table>
+                    </div>    
+                </div>
+
+                <div class="row">
+                    <div class=buttons>
+                        <a class="btn btn-primary" href=<%='/' %>>Back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+

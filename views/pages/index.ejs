@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <title>Home</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        
+        <link rel="stylesheet" href="/styles.css">        
+    </head>
+
+    <body>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+    <script type="text/javascript" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   
+
+        <div class="container">
+            <h1 class="text-center">Movie Database</h1>
+
+           <div class="form-group">
+            <label for="search">Search:</label>
+            <input type="text" class="form-control searchInput" id="usr">
+            </div>
+
+            <button type="button" class="btn btn-default pressSearch">Search</button>
+
+<script>
+
+$('.pressSearch').click(function(){
+/////////////CALLS THE searchFunction when .pressSearch BUTTON IS PRESSED 
+        var getSearch = $('.searchInput').val();
+        location.href = 'search/'+getSearch;
+        console.log("search button is pressed "+getSearch);
+        });
+
+</script>
+</div>
+
+<div class="bodyStyle">
+<div class="container">
+
+<div class="row ">
+            <% for(var i=0; i<movies.length; i++) {%>
+
+		<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 outSetBorder">
+		
+            <a class="movie-link" href='/movie/<%= movies[i].id %>'>
+            <div>
+
+                    <h4 class="media-heading">
+                        <div class="textEffect"><%=movies[i].title %></div>
+                       
+                        <span class="badge"><%=movies[i].rated %></span>
+                        <span class="badge"><%=movies[i].tomatoRating %></span>
+                    </h4>
+
+                <div>
+                    <div>
+                        <img class="media-object movie-poster " src=<%=movies[i].poster %> >
+                    </div>
+                </div>
+                <div>
+                    
+                    <div class="textEffect">
+                        <%=movies[i].plot %>
+                    </div>
+                    <div class="released-date releaseTextEffect">
+                        Released: <%=movies[i].released %>
+                    </div>
+                </div>
+            </div>
+            </a>
+        </div>
+            <% } %>
+            
+</div>
+        </div>
+        </div>
+        </div>
+    </body>
+</html>
+
